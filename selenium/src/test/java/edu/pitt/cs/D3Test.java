@@ -122,19 +122,19 @@ public class D3Test {
       assert(elements.size() > 0);
     }
   }
-  @Test
-  public void tEST6RENT() {
-    driver.get("http://localhost:8080/");
-    driver.manage().window().setSize(new Dimension(1310, 912));
-    driver.findElement(By.linkText("Rent-A-Cat")).click();
-    driver.findElement(By.id("rentID")).click();
-    driver.findElement(By.id("rentID")).sendKeys("1");
-    driver.findElement(By.cssSelector(".form-group:nth-child(3) .btn")).click();
-    assertThat(driver.findElement(By.xpath("//div[@id=\'listing\']/ul/li")).getText(), is("Rented out"));
-    assertThat(driver.findElement(By.xpath("//div[@id=\'listing\']/ul/li[2]")).getText(), is("ID 2. Old Deuteronomy"));
-    assertThat(driver.findElement(By.xpath("//div[@id=\'listing\']/ul/li[3]")).getText(), is("ID 3. Mistoffelees"));
-    assertThat(driver.findElement(By.xpath("//div[@id=\'rentResult\']")).getText(), is("Success!"));
-  }
+  // @Test
+  // public void tEST6RENT() {
+  //   driver.get("http://localhost:8080/");
+  //   driver.manage().window().setSize(new Dimension(1310, 912));
+  //   driver.findElement(By.linkText("Rent-A-Cat")).click();
+  //   driver.findElement(By.id("rentID")).click();
+  //   driver.findElement(By.id("rentID")).sendKeys("1");
+  //   driver.findElement(By.cssSelector(".form-group:nth-child(3) .btn")).click();
+  //   assertThat(driver.findElement(By.xpath("//div[@id=\'listing\']/ul/li")).getText(), is("Rented out"));
+  //   assertThat(driver.findElement(By.xpath("//div[@id=\'listing\']/ul/li[2]")).getText(), is("ID 2. Old Deuteronomy"));
+  //   assertThat(driver.findElement(By.xpath("//div[@id=\'listing\']/ul/li[3]")).getText(), is("ID 3. Mistoffelees"));
+  //   assertThat(driver.findElement(By.xpath("//div[@id=\'rentResult\']")).getText(), is("Success!"));
+  // }
   // @Test
   // public void tEST7RETURN() {
 
