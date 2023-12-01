@@ -36,18 +36,22 @@ public class D3Test {
     @Before
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox"); // Bypass OS security model
         options.addArguments("--headless");
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("--disable-gpu"); // GPU hardware acceleration isn't necessary for headless mode
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-setuid-sandbox"); // disable the setuid sandbox for the renderer process
+        options.setExperimentalOption("useAutomationExtension", false);
+        options.addArguments("--remote-debugging-port=9222"); // this
+
         driver = new ChromeDriver(options);
-       // 111111
-
-
-        // driver = new ChromeDriver();
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
-        
+
         // 设置隐式等待时间为30秒
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        
+
         // 统一窗口大小
         driver.manage().window().setSize(new Dimension(1200, 800));
     }
